@@ -1,33 +1,18 @@
 <?xml version="1.0"?>
 <launch>
-  <!-- Argumentos -->
-  <!-- <arg name="model" default="waffle" doc="model type [burger, waffle, waffle_pi]"/>
-  <arg name="x_pos" default="0"/>
-  <arg name="y_pos" default="0"/>
-  <arg name="z_pos" default="0"/>
-  <arg name="joycon" default="false" doc="use joycon"/> -->
+  <!-- Run map_server -->
+  <node pkg="map_server" type="map_server" name="map_server" args="$(find museum_guide)/maps/map_real.yaml" output="screen"/>
 
-
-  <!-- Map Server -->
-  <node pkg="map_server" type="map_server" name="map_server" args="$(find museum_guide)/maps/mapa_real2.yaml" output="screen"/>
-
-
-  <!-- AMCL -->
+  <!-- Launch amcl -->
   <include file="$(find museum_guide)/launch/amcl.launch">
     <arg name="initial_pose_x" default="0"/>
     <arg name="initial_pose_y" default="0"/>
     <arg name="initial_pose_a" default="0"/>
   </include>
 
-
- <!-- move_base -->
+ <!-- Launch move_base_real -->
  <include file="$(find museum_guide)/launch/move_base_real.launch"/>
 
-  <!-- RVIZ -->
+  <!-- Run rviz -->
   <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find museum_guide)/rviz/real.rviz"/>
-
-  <!--
-  Guardar Mapa (Guarda an localização onde o comando é corrido)
-  rosrun map_server map_saver -f teste1
-  -->
 </launch>

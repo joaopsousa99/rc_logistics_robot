@@ -1,32 +1,26 @@
 <?xml version="1.0"?>
 <launch>
+  <!-- Arguments -->
   <arg name="model" default="waffle" doc="model type [burger, waffle, waffle_pi]"/>
-  <arg name="joycon" default="false" doc="use joycon"/>
-  <arg name="x_pos" default="0"/>
-  <arg name="y_pos" default="0"/>
-  <arg name="z_pos" default="0"/>
+  <arg name="gamepad" default="false" doc="use gamepad"/>
 
-  
-  <!-- <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" /> -->
-
-  <group if="$(arg joycon)">
+  <!-- IF gamepad == true THEN use(gamepad) ELSE use(keyboard) -->
+  <group if="$(arg gamepad)">
     <node name="joy_node" pkg="joy" type="joy_node">
+      <!--
+      The robot's motors' drivers make them stop if it doesn't receive a command 0.2s (f=5Hz) after the last
+      -->
       <param name = "autorepeat_rate" value = "6"/>
     </node>
     <node name="teleop_node" pkg="teleop_twist_joy" type="teleop_node"  />
   </group>
-
-  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen" unless="$(arg joycon)" />
+  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen" unless="$(arg gamepad)" />
   
+  <!-- Run slam_gmapping -->
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" args="scan:=scan" >
     <rosparam file="$(find museum_guide)/param/real/mapping_params.yaml" command="load" />
   </node>
 
-  <!-- RVIZ -->
+  <!-- Run rviz -->
   <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find museum_guide)/rviz/mapping_real.rviz"/>
-
-  <!--
-  Guardar Mapa (Guarda an localização onde o comando é corrido)
-  rosrun map_server map_saver -f teste1
-  -->
 </launch>

@@ -1,15 +1,12 @@
 <?xml version="1.0"?>
 <launch>
-  <!-- Argumentos -->
+  <!-- Arguments -->
   <arg name="model" default="waffle" doc="model type [burger, waffle, waffle_pi]"/>
-  <arg name="x_pos" default="6.0"/>
-  <arg name="y_pos" default="1.7"/>
-  <arg name="z_pos" default="0.05"/>
-  <arg name="joycon" default="false" doc="use joycon"/>
+  <arg name="gamepad" default="false" doc="use gamepad"/>
 
-  <!-- Gazebo -->
+  <!-- Launch empty_world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find museum_guide)/world/rcp_world3.world"/>
+    <arg name="world_name" value="$(find museum_guide)/world/sim.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
@@ -17,76 +14,50 @@
     <arg name="debug" value="false"/>
   </include>
 
+  <!-- TurtleBot3 URDF -->
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 
+  <!-- Run spawn_model -->
   <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf"  args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
+  <!-- Run robot_state_publisher -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
 
-  <!-- Map Server -->
-  <node pkg="map_server" type="map_server" name="map_server" args="$(find museum_guide)/maps/sim_map.yaml"/>
+  <!-- Run map_server -->
+  <node pkg="map_server" type="map_server" name="map_server" args="$(find museum_guide)/maps/map_sim.yaml"/>
 
-
-  <!-- Teleop
-    
-  <group if="$(arg joycon)">
-    <node name="joy_node" pkg="joy" type="joy_node"  />
-    <node name="teleop_node" pkg="teleop_twist_joy" type="teleop_node"  />
-  </group>
-
-  <node pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" name="teleop" output="screen" unless="$(arg joycon)" />
-  -->
-
-  <!-- AMCL -->
+  <!-- Launch amcl -->
   <include file="$(find museum_guide)/launch/amcl.launch">
     <arg name="initial_pose_x" default="6"/>
     <arg name="initial_pose_y" default="1.7"/>
     <arg name="initial_pose_a" default="0.0"/>
   </include>
 
-
- <!-- move_base -->
+ <!-- Launch move_base -->
   <include file="$(find museum_guide)/launch/move_base_sim.launch"/>
   
-
-<!-- Remapping for ZBAR -->
+  <!-- Remapping for barcode_reader_node -->  
   <remap from="/webcam/image_raw" to="/image"/>
- <!-- launch video stream -->
-   <include file="$(find video_stream_opencv)/launch/camera.launch" >
-        <!-- node name and ros graph name -->
-        <arg name="camera_name" value="webcam" />
-        <!-- means video device 0, /dev/video0 -->
-        <arg name="video_stream_provider" value="0" />
-        <!-- set camera fps to (if the device allows) -->
-        <arg name="set_camera_fps" value="30"/>
-        <!-- set buffer queue size of frame capturing to -->
-        <arg name="buffer_queue_size" value="100" />
-        <!-- throttling the querying of frames to -->
-        <arg name="fps" value="30" />
-        <!-- setting frame_id -->
-        <arg name="frame_id" value="webcam" />
-        <!-- flip the image horizontally (mirror it) -->
-        <arg name="flip_horizontal" value="false" />
-        <!-- flip the image vertically -->
-        <arg name="flip_vertical" value="false" />
-        <!-- visualize on an image_view window the stream generated -->
-        <arg name="visualize" value="false" />
-   </include>
+  <!-- Launch camera -->
+  <include file="$(find video_stream_opencv)/launch/camera.launch" >
+      <arg name="camera_name" value="webcam" />       <!-- use webcam -->
+      <arg name="video_stream_provider" value="0" />  <!-- webcam name -->
+      <arg name="set_camera_fps" value="30"/>
+      <arg name="buffer_queue_size" value="100" />
+      <arg name="fps" value="30" />
+      <arg name="frame_id" value="webcam" />
+      <arg name="flip_horizontal" value="false" />
+      <arg name="flip_vertical" value="false" />
+      <arg name="visualize" value="false" />
+  </include>
 
-
-  <!-- RVIZ -->
+  <!-- Run rviz -->
   <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find museum_guide)/rviz/sim.rviz"/>
 
-  <!-- <node pkg="nodelet" type="nodelet" name="zbar_manager"  args="manager"/> -->
-
+  <!-- Run barcode_reader_node -->
   <node pkg="zbar_ros" type="barcode_reader_node" name="barcode_reader">
         <param name="throttle_repeated_barcodes" type="double" value="2.0"/>
   </node>
 
-  <!-- goals_node -->
-  <node pkg="museum_guide" type="goals_node_sim.py" name="movebase_client_py" output="screen" />
-
-  <!--
-  Guardar Mapa (Guarda an localização onde o comando é corrido)
-  rosrun map_server map_saver -f teste1
-  -->
+  <!-- Run move_base_client_node -->
+  <node pkg="museum_guide" type="goals_node_sim.py" name="move_base_client_node" output="screen" />
 </launch>
