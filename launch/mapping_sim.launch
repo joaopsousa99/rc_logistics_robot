@@ -2,6 +2,9 @@
 <launch>
   <!-- Arguments -->
   <arg name="model" default="waffle" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="x_pos" default="6.0"/>
+  <arg name="y_pos" default="1.7"/>
+  <arg name="z_pos" default="0.05"/>
   <arg name="gamepad" default="false" doc="use gamepad"/>
 
   <!-- Gazebo arguments -->

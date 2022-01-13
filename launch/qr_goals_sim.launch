@@ -2,11 +2,14 @@
 <launch>
   <!-- Arguments -->
   <arg name="model" default="waffle" doc="model type [burger, waffle, waffle_pi]"/>
+  <arg name="x_pos" default="6.0"/>
+  <arg name="y_pos" default="1.7"/>
+  <arg name="z_pos" default="0.05"/>
   <arg name="gamepad" default="false" doc="use gamepad"/>
 
   <!-- Launch empty_world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find rc_logistics_robot)/world/sim.world"/>
+    <arg name="world_name" value="$(find rc_logistics_robot)/worlds/sim.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
