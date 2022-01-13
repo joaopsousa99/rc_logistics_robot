@@ -11,11 +11,11 @@
     <param name="DWAPlannerROS/min_vel_x" value="0.01" if="$(arg move_forward_only)" />
 
     <!-- Import move_base parameters  -->
-    <rosparam file="$(find museum_guide)/param/real/costmap_common_params.yaml" command="load" ns="global_costmap" />
-    <rosparam file="$(find museum_guide)/param/real/costmap_common_params.yaml" command="load" ns="local_costmap" />
-    <rosparam file="$(find museum_guide)/param/real/local_costmap_params.yaml" command="load" />
-    <rosparam file="$(find museum_guide)/param/real/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(find museum_guide)/param/real/move_base_params.yaml" command="load" />
-    <rosparam file="$(find museum_guide)/param/real/dwa_local_planner_params.yaml" command="load" /> 
+    <rosparam file="$(find rc_logistics_robot)/param/real/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find rc_logistics_robot)/param/real/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find rc_logistics_robot)/param/real/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find rc_logistics_robot)/param/real/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find rc_logistics_robot)/param/real/move_base_params.yaml" command="load" />
+    <rosparam file="$(find rc_logistics_robot)/param/real/dwa_local_planner_params.yaml" command="load" /> 
   </node>
 </launch>

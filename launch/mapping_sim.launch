@@ -6,7 +6,7 @@
 
   <!-- Gazebo arguments -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name"    value="$(find museum_guide)/worlds/sim.world"/>
+    <arg name="world_name"    value="$(find rc_logistics_robot)/worlds/sim.world"/>
     <arg name="paused"        value="false"/>
     <arg name="use_sim_time"  value="true"/>
     <arg name="gui"           value="true"/>
@@ -32,6 +32,6 @@
   
   <!-- Run slam_gmapping -->
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" args="scan:=scan" >
-    <rosparam file="$(find museum_guide)/param/sim/mapping_params.yaml" command="load" />
+    <rosparam file="$(find rc_logistics_robot)/param/sim/mapping_params.yaml" command="load" />
   </node>
 </launch>

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(museum_guide)
+project(rc_logistics_robot)
 
 set (OpenCV_DIR /usr/lib/x86_64-linux-gnu/cmake/opencv4)
 

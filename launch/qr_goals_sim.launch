@@ -6,7 +6,7 @@
 
   <!-- Launch empty_world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find museum_guide)/world/sim.world"/>
+    <arg name="world_name" value="$(find rc_logistics_robot)/world/sim.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
@@ -23,17 +23,17 @@
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
 
   <!-- Run map_server -->
-  <node pkg="map_server" type="map_server" name="map_server" args="$(find museum_guide)/maps/map_sim.yaml"/>
+  <node pkg="map_server" type="map_server" name="map_server" args="$(find rc_logistics_robot)/maps/map_sim.yaml"/>
 
   <!-- Launch amcl -->
-  <include file="$(find museum_guide)/launch/amcl.launch">
+  <include file="$(find rc_logistics_robot)/launch/amcl.launch">
     <arg name="initial_pose_x" default="6"/>
     <arg name="initial_pose_y" default="1.7"/>
     <arg name="initial_pose_a" default="0.0"/>
   </include>
 
  <!-- Launch move_base -->
-  <include file="$(find museum_guide)/launch/move_base_sim.launch"/>
+  <include file="$(find rc_logistics_robot)/launch/move_base_sim.launch"/>
   
   <!-- Remapping for barcode_reader_node -->  
   <remap from="/webcam/image_raw" to="/image"/>
@@ -51,7 +51,7 @@
   </include>
 
   <!-- Run rviz -->
-  <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find museum_guide)/rviz/sim.rviz"/>
+  <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find rc_logistics_robot)/rviz/sim.rviz"/>
 
   <!-- Run barcode_reader_node -->
   <node pkg="zbar_ros" type="barcode_reader_node" name="barcode_reader">
@@ -59,5 +59,5 @@
   </node>
 
   <!-- Run move_base_client_node -->
-  <node pkg="museum_guide" type="goals_node_sim.py" name="move_base_client_node" output="screen" />
+  <node pkg="rc_logistics_robot" type="goals_node_sim.py" name="move_base_client_node" output="screen" />
 </launch>
