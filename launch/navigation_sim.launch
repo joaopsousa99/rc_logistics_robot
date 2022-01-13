@@ -27,7 +27,6 @@
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
 
   <!-- Run map_server -->
-  <!-- <node pkg="map_server" type="map_server" name="map_server" args="$(find rc_logistics_robot)/maps/map_sim.yaml"/> -->
   <node pkg="map_server" type="map_server" name="map_server" args="$(find rc_logistics_robot)/maps/map_sim.yaml"/>
 
   <!-- Launch amcl -->

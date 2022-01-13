@@ -37,4 +37,7 @@
   <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" args="scan:=scan" >
     <rosparam file="$(find rc_logistics_robot)/param/sim/mapping_params.yaml" command="load" />
   </node>
+
+  <!-- Run rviz -->
+  <node pkg="rviz" type="rviz" name="rviz" required="true" args="-d $(find rc_logistics_robot)/rviz/mapping_real.rviz"/>
 </launch>
