@@ -62,5 +62,5 @@
   </node>
 
   <!-- Run move_base_client_node -->
-  <node pkg="rc_logistics_robot" type="goals_node_sim.py" name="move_base_client_node" output="screen" />
+  <node pkg="rc_logistics_robot" type="qr_goals_sim_node.py" name="move_base_client_node" output="screen" />
 </launch>
