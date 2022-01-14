@@ -4,7 +4,7 @@ Made for Cognitive Robotics 2021/2022 by João Sousa and Nuno Marques, Masters D
 - [Required packages](#required-packages)
 - [How to connect the computer to the robot and run ROS<a name = "connect_pc_to_robot"></a>](#how-to-connect-the-computer-to-the-robot-and-run-ros)
   - [Set up the connection<a name = "wired_connection"></a>](#set-up-the-connection)
-    - [NOTES](#notes)
+    - [Notes](#notes)
   - [How to check IP address of the robot<a name = "check_ip"></a>](#how-to-check-ip-address-of-the-robot)
 - [How to create and save a map<a name = "save_map"></a>](#how-to-create-and-save-a-map)
   - [In simulation<a name = "save_map_sim"></a>](#in-simulation)
