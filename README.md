@@ -4,7 +4,7 @@ Made for Cognitive Robotics 2021/2022 by João Sousa and Nuno Marques, Masters D
 - [Required packages](#required-packages)
 - [How to connect the computer to the robot and run ROS<a name = "connect_pc_to_robot"></a>](#how-to-connect-the-computer-to-the-robot-and-run-ros)
   - [Set up the connection<a name = "wired_connection"></a>](#set-up-the-connection)
-    - [NOTES](#notes)
+    - [Notes](#notes)
   - [How to check IP address of the robot<a name = "check_ip"></a>](#how-to-check-ip-address-of-the-robot)
 - [How to create and save a map<a name = "save_map"></a>](#how-to-create-and-save-a-map)
   - [In simulation<a name = "save_map_sim"></a>](#in-simulation)
@@ -12,20 +12,20 @@ Made for Cognitive Robotics 2021/2022 by João Sousa and Nuno Marques, Masters D
 - [How to run the navigate using QR codes](#how-to-run-the-navigate-using-qr-codes)
 
 ## Required packages
-- [amcl](wiki.ros.org/amcl)
-- [gazebo_ros](wiki.ros.org/gazebo_ros)
-- [gmapping](wiki.ros.org/gmapping)
-- [joy](wiki.ros.org/joy)
-- [map_server](wiki.ros.org/map_server)
-- [move_base](wiki.ros.org/move_base)
-- [robot_state_publisher](wiki.ros.org/robot_state_publisher)
-- [rviz](wiki.ros.org/rviz)
-- [teleop_twist_joy](wiki.ros.org/teleop_twist_joy)
-- [teleop_twist_keyboard](wiki.ros.org/teleop_twist_keyboard)
-- [turtlebot3_description](wiki.ros.org/turtlebot3_description)
-- [video_stream_opencv](wiki.ros.org/video_stream_opencv)
-- [xacro](wiki.ros.org/xacro)
-- [zbar_ros](wiki.ros.org/zbar_ros)
+- [amcl](https://wiki.ros.org/amcl)
+- [gazebo_ros](https://wiki.ros.org/gazebo_ros)
+- [gmapping](https://wiki.ros.org/gmapping)
+- [joy](https://wiki.ros.org/joy)
+- [map_server](https://wiki.ros.org/map_server)
+- [move_base](https://wiki.ros.org/move_base)
+- [robot_state_publisher](https://wiki.ros.org/robot_state_publisher)
+- [rviz](https://wiki.ros.org/rviz)
+- [teleop_twist_joy](https://wiki.ros.org/teleop_twist_joy)
+- [teleop_twist_keyboard](https://wiki.ros.org/teleop_twist_keyboard)
+- [turtlebot3_description](https://wiki.ros.org/turtlebot3_description)
+- [video_stream_opencv](https://wiki.ros.org/video_stream_opencv)
+- [xacro](https://wiki.ros.org/xacro)
+- [zbar_ros](https://wiki.ros.org/zbar_ros)
 
 ## How to connect the computer to the robot and run ROS<a name = "connect_pc_to_robot"></a>
 
@@ -42,7 +42,7 @@ Made for Cognitive Robotics 2021/2022 by João Sousa and Nuno Marques, Masters D
 10. Run `source ./export.sh`. 
 11. You can now run any ROS command.
 
-#### NOTES
+#### Notes
 - Make sure to change the hosts file (/etc/hosts) to contain the correct IP address of orangepipcplus, by adding the line `XXX.XXX.XXX.XXX orangepipcplus`.
 - To clear the terminal without having to run `source ./export.sh` again, use `clear -x`.
 - In each new window of the computer's terminal, start by running `source ./export.sh` (and make sure you're in the right directory).

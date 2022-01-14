@@ -2,4 +2,8 @@
 .vscode/browse.vc.db-shm
 .vscode/browse.vc.db-wal
 .vscode/c_cpp_properties.json
+<<<<<<< HEAD
 .vscode/settings.json
+=======
+.vscode/settings.json
+>>>>>>> fcc669161ae042e6144ed331317ec3e17d162cf6
