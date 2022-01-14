@@ -42,7 +42,7 @@ Made for Cognitive Robotics 2021/2022 by João Sousa and Nuno Marques, Masters D
 10. Run `source ./export.sh`. 
 11. You can now run any ROS command.
 
-#### NOTES
+#### Notes
 - Make sure to change the hosts file (/etc/hosts) to contain the correct IP address of orangepipcplus, by adding the line `XXX.XXX.XXX.XXX orangepipcplus`.
 - To clear the terminal without having to run `source ./export.sh` again, use `clear -x`.
 - In each new window of the computer's terminal, start by running `source ./export.sh` (and make sure you're in the right directory).
