@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-rosrun map_server map_saver -f $1
+rosrun map_server map_saver -f $1 

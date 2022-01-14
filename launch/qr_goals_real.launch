@@ -10,7 +10,7 @@
     <arg name="initial_pose_a" default="0"/>
   </include>
 
- <!-- Launch move_base_real -->
+ <!-- Launch move_base_real --> 
  <include file="$(find rc_logistics_robot)/launch/move_base_real.launch"/>
 
  <!-- Remapping for barcode_reader_node -->

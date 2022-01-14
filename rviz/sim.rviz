@@ -7,7 +7,7 @@ Panels:
         - /local costmap1
       Splitter Ratio: 0.5147058963775635
     Tree Height: 698
-  - Class: rviz/Selection
+  - Class: rviz/Selection 
     Name: Selection
   - Class: rviz/Tool Properties
     Expanded:

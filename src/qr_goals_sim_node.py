@@ -8,7 +8,7 @@ import actionlib
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal
 from std_msgs.msg import String
 
-# Create goal points
+# Create goal points 
 def create_goal_points():
     goalA = MoveBaseGoal()
     goalA.target_pose.header.frame_id = "map"

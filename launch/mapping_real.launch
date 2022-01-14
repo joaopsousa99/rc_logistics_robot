@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<launch>
+<launch> 
   <!-- Arguments -->
   <arg name="model" default="waffle" doc="model type [burger, waffle, waffle_pi]"/>
   <arg name="gamepad" default="false" doc="use gamepad"/>

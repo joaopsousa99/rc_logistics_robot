@@ -3,7 +3,7 @@
   <!-- Run map_server -->
   <node pkg="map_server" type="map_server" name="map_server" args="$(find rc_logistics_robot)/maps/map_real.yaml" output="screen"/>
 
-  <!-- Launch amcl -->
+  <!-- Launch amcl --> 
   <include file="$(find rc_logistics_robot)/launch/amcl.launch">
     <arg name="initial_pose_x" default="0"/>
     <arg name="initial_pose_y" default="0"/>

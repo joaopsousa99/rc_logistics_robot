@@ -60,7 +60,7 @@
   <node pkg="zbar_ros" type="barcode_reader_node" name="barcode_reader">
         <param name="throttle_repeated_barcodes" type="double" value="2.0"/>
   </node>
-
+ 
   <!-- Run move_base_client_node -->
   <node pkg="rc_logistics_robot" type="qr_goals_sim_node.py" name="move_base_client_node" output="screen" />
 </launch>

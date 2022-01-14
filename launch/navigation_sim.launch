@@ -17,7 +17,7 @@
     <arg name="debug" value="false"/>
   </include>
 
-  <!-- TurtleBot3 URDF -->
+  <!-- TurtleBot3 URDF --> 
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
 
   <!-- Run spawn_model -->

@@ -1,6 +1,6 @@
 Made for Cognitive Robotics 2021/2022 by João Sousa and Nuno Marques, Masters Degree in Robotics, A.I. and Control, DEEC @ UC
 
-## Table of contents<!-- omit in toc -->
+## Table of contents<!-- omit in toc --> 
 - [Required packages](#required-packages)
 - [How to connect the computer to the robot and run ROS<a name = "connect_pc_to_robot"></a>](#how-to-connect-the-computer-to-the-robot-and-run-ros)
   - [Set up the connection<a name = "wired_connection"></a>](#set-up-the-connection)
